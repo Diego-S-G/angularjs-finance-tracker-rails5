@@ -16,4 +16,9 @@ class Stock < ApplicationRecord
       return nil
     end
   end
+
+  #Stock cannot be added because you already added
+  #10 stocks
+  #this stock
+
 end
