@@ -1,1 +1,4 @@
-var app = angular.module('FinanceTrackerApp', []);
+var app = angular.module('FinanceTrackerApp', [])
+                 .controller('stocksController', function($scope){
+                    
+                 })
