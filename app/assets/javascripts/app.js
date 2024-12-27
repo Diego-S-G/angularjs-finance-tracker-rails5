@@ -1,4 +1,2 @@
 var app = angular.module('FinanceTrackerApp', [])
-                 .controller('stocksController', function($scope){
-                    
-                 })
+                 .controller('stocksController', [$scope, function($scope){}])
