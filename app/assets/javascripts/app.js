@@ -11,9 +11,7 @@ var app = angular.module('FinanceTrackerApp', [])
                     last_price: 100.00
                 }
             } else {
-                $scope.stock = {
-                    symbol: {}
-                }
+                $scope.stock = {}
             }
         }
 
