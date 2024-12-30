@@ -12,6 +12,19 @@ var app = angular.module('FinanceTrackerApp', [])
 
         return stockApi;
     }])
+    .factory('friendService', ['$http', function ($http) {
+        var friendApi = {};
+
+        friendApi.searchFriends = function (search_param) { // promise e tal
+            return $http.get('/search_friends.json?search_param=' + search_param);
+        }
+
+        // friendApi.addStockToPortfolio = function (search_param) {
+        //     return $http.post('/.json?search_param=' + search_param);
+        // }
+
+        return friendApi;
+    }])
     .controller('stocksController', ['$scope', 'stockService', function ($scope, stockService) {
 
         $scope.stock = {};
@@ -63,6 +76,20 @@ var app = angular.module('FinanceTrackerApp', [])
         $scope.friends = {};
 
         $scope.lookup = function () {
+            if($scope.friend_search_param != undefined && $scope.friend_search_param != '') {
 
+                friendService.searchFriends($scope.friend_search_param).then(function (response) {
+                    $scope.friends.error = null;
+                    $scope.friends.message = null;
+                    $scope.friends.list = response.data;
+
+                }, function (error) {
+                    $scope.friends = {};
+                    $scope.friends.error = error.data.response;
+                });
+
+            } else {
+                $scope.friends = {};
+            }
         }
     }])
