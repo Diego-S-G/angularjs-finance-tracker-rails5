@@ -59,3 +59,11 @@ var app = angular.module('FinanceTrackerApp', [])
         }
 
     }])
+    .controller('friendsController', ['$scope', function ($scope) {
+        $scope.friend = {};
+        $scope.friend.name = 'Kyouraku Shunsui';
+
+        $scope.lookup = function () {
+            
+        }
+    }])
