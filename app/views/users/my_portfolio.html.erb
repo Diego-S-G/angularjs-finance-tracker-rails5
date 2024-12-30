@@ -29,7 +29,7 @@
     <strong>Name: </strong> {{stock.name}}
     <strong>Price: </strong> {{stock.last_price}}
 
-    <a href="#" class="btn btn-xs btn-success ng-hide" ng-show="stock.can_be_added">Add to my stocks</a>
+    <button class="btn btn-xs btn-success ng-hide" ng-show="stock.can_be_added" ng-click="add()">Add to my stocks</button>
 
     <span class="label label-default"></span>
   </div>
