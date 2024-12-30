@@ -17,17 +17,16 @@
   </form>
 
 
-  <div class="results-block" ng-hide="true">
-    <!-- Placeholder for messages -->
-    <span class="badge">Placeholder</span>
+  <div id="stock-lookup-errors" class="results-block alert alert-danger ng-hide" ng-show="stock.error">
+    {{stock.error}}
   </div>
 
-  <div id="stock-lookup-results" class="well results-block" ng-hide="true" ng-show="stock.name != undefined">
+  <div id="stock-lookup-results" class="well results-block ng-hide" ng-show="stock.name != undefined">
     <strong>Symbol: </strong> {{stock.symbol}}
     <strong>Name: </strong> {{stock.name}}
     <strong>Price: </strong> {{stock.last_price}}
 
-    <a href="#" class="btn btn-xs btn-success" ng-hide="true" ng-show="stock.can_be_added">Add to my stocks</a>
+    <a href="#" class="btn btn-xs btn-success ng-hide" ng-show="stock.can_be_added">Add to my stocks</a>
 
     <span class="label label-default"></span>
   </div>
