@@ -46,6 +46,9 @@ var app = angular.module('FinanceTrackerApp', [])
 
                     $scope.stock.name = null; // tá limpando o input e o output pra após add um stock, poder fazer search no próximo
                     $scope.ticker = null;
+
+                    $('#stock-list').load('my_portfolio.js');
+
                 }, function (error) {
                     $scope.stock = {};
                     $scope.stock.error = error.data.response;
