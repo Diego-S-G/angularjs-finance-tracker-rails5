@@ -16,12 +16,18 @@ var app = angular.module('FinanceTrackerApp', [])
             if ($scope.ticker != undefined && $scope.ticker != '') {
                 
                 stockService.searchStocks($scope.ticker).then(function (response) {
-                    $scope.stock = {
-                        symbol: response.data.ticker,
-                        name: response.data.name,
-                        last_price: response.data.last_price
-                    }
-                }, function (error) {});
+                    
+                    $scope.stock.error = null;
+                    $scope.stock.symbol = response.data.ticker;
+                    $scope.stock.name = response.data.name;
+                    $scope.stock.last_price = response.data.last_price;
+                    $scope.stock.can_be_added = response.data.can_be_added;
+
+                }, function (error) {
+                    $scope.stock = {};
+
+                    $scope.stock.error = error.data.response;
+                });
             } else {
                 $scope.stock = {}
             }
