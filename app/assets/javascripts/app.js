@@ -40,9 +40,14 @@ var app = angular.module('FinanceTrackerApp', [])
         $scope.add = function () {
             if($scope.stock != undefined && $scope.stock.symbol != '') {
                 stockService.addStockToPortfolio($scope.stock.symbol).then(function (response) {
-                    
-                }, function (error) {
+                    $scope.stock.error = null;
+                    $scope.stock.message = response.data.response;
 
+                    $scope.stock.name = null; // tá limpando o input e o output pra após add um stock, poder fazer search no próximo
+                    $scope.ticker = null;
+                }, function (error) {
+                    $scope.stock = {};
+                    $scope.stock.error = error.data.response;
                 });
             } else {
                 $scope.stock.error = 'Stock cannot be added';
