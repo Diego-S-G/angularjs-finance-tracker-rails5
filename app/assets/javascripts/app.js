@@ -22,6 +22,7 @@ var app = angular.module('FinanceTrackerApp', [])
                 stockService.searchStocks($scope.ticker).then(function (response) {
                     
                     $scope.stock.error = null;
+                    $scope.stock.message = null;
                     $scope.stock.symbol = response.data.ticker;
                     $scope.stock.name = response.data.name;
                     $scope.stock.last_price = response.data.last_price;
