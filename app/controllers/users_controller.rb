@@ -26,7 +26,8 @@ class UsersController < ApplicationController
     if @users.blank?
       render status: 404, json: { response: 'No users match this search criteria' }
     else
-      render json: @users
+      @users.map! { |user| user.profile_path = user_path(user); user}
+      render json: @users, methods: [:profile_path]
     end
   end
   

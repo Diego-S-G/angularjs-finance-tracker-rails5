@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :stocks, through: :user_stocks
   has_many :friendships
   has_many :friends, through: :friendships
+
+  attr_accessor :profile_path
   
   def full_name
     return "#{first_name} #{last_name}".strip if (first_name || last_name)
