@@ -7,7 +7,9 @@ class StocksController < ApplicationController
     end
 
     if @stock
-      render json: @stock
+      @stock.can_be_added = current_user.can_add_stock?(@stock.ticker)
+
+      render json: @stock, methods: [:can_be_added]
     else
       render status: 404, json: { response: 'No stocks exist for this symbol.' }
     end
