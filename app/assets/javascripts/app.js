@@ -104,6 +104,8 @@ var app = angular.module('FinanceTrackerApp', [])
 
                     $scope.friend_search_param = null;
 
+                    $('#friends-list').load('my_friends.js');
+
                 }, function (error) {
                     $scope.friends.error = error.data.response;
                 });
