@@ -33,10 +33,10 @@
         <td><strong>Profile:</strong>
           <a href="{{friend.profile_path}}" class="btn btn-xs btn-success">View Profile</a>
 
-          <a href="#" class="btn btn-xs btn-success">Add as my friend</a>
+          <a href="#" class="btn btn-xs btn-success ng-hide" ng-show="!friend.friends_already">Add as my friend</a>
 
-          <span class="label label-primary">
-            {{friend.status}}
+          <span class="label label-primary ng-hide" ng-show="friend.friends_already">
+            Friend
           </span>
         </td>
       </tr>
