@@ -20,7 +20,7 @@ var app = angular.module('FinanceTrackerApp', [])
         }
 
         friendApi.addFriend = function (id) {
-            return $http.post('/friendships.json?friend=' + id);
+            return $http.post('/add_friend.json?friend=' + id);
         }
 
         return friendApi;
@@ -101,6 +101,8 @@ var app = angular.module('FinanceTrackerApp', [])
                 friendService.addFriend(friend_id).then(function (response) {
                     $scope.friends.error = null;
                     $scope.friends.message = response.data.response;
+
+                    $scope.friend_search_param = null;
 
                 }, function (error) {
                     $scope.friends.error = error.data.response;

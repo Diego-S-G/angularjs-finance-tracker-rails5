@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  
+  protect_from_forgery with: :exception, unless: -> { request.format.json? }
+
   def my_portfolio
     @user_stocks = current_user.stocks
     @user = current_user
@@ -39,11 +40,12 @@ class UsersController < ApplicationController
     @friend = User.find(params[:friend])
     current_user.friendships.build(friend_id: @friend.id)
     if current_user.save
-      flash[:notice] = "Friend was successfully added"
+      flash[:success] = "Friend was successfully added"
+      render json: { response: flash[:success] }, status: :ok
     else
       flash[:danger] = "There was something wrong with the friend request"
+      render json: { response: flash[:danger] }, status: 422
     end  
-    redirect_to my_friends_path
   end
   
   def show
