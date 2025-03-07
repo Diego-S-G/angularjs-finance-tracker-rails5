@@ -1,7 +1,7 @@
 # Finance Tracker com Rails e AngularJS
 <br/>
 
-Este é um dos projetos que fiz acompanhando o [curso do Mashrur Hossain na Udemy](https://www.udemy.com/course/ruby-on-rails-react-angular), na minha trilha de aprendizado de Ruby e Rails usando React, AngularJS e Vuejs.
+Este é um dos projetos que fiz acompanhando o [curso do Mashrur Hossain na Udemy](https://www.udemy.com/course/ruby-on-rails-react-angular), na minha trilha de aprendizado de Ruby e Rails usando React, AngularJS e Vue.js.
 <br/>
 
 Ele usa o [Finance Tracker](https://github.com/Diego-S-G/finance-tracker) como base e integra AngularJS à aplicação, trocando códigos feitos em ruby para angular nas páginas 'Meu Portfólio' e 'Meus Amigos'. Todo o fluxo de pesquisar as ações/amigos, os adicionar/remover, está usando angular.
