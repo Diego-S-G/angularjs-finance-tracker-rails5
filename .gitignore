@@ -33,3 +33,5 @@ public/packs/*/public/packs
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+/config/secrets.yml
